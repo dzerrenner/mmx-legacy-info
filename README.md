@@ -8,11 +8,12 @@ Overview
 
 This project tries to extract game information from the data files provided with game installation. These are mainly XML- and CSV-Files used by the Unity-Engine as streaming assets.
 
-Requirements
-------------
+Requirements and dependencies
+-----------------------------
 
 - python >= 3
 - a copy of the game, more info here: http://might-and-magic.ubi.com/mightandmagicx-legacy
+- xmldict >= 0.4.1, see: https://github.com/thoughtnirvana/xmldict
 - mongodb (optional but recommended) to avoid repeated parsing and disk access
 
 Progress and planned features
@@ -26,5 +27,5 @@ Progress and planned features
 
 ### Technology
 
-- Independant backend
+- Independent backend
 - REST API
