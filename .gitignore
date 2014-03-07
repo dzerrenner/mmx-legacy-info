@@ -3,6 +3,9 @@
 #################
 
 *.pydevproject
+*.sublime-project
+*.sublime-workspace
+.idea/
 .project
 .metadata
 bin/
