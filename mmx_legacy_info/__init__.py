@@ -7,4 +7,4 @@ BASE_DIR = os.path.join(r"D:\Games\Steam\SteamApps\common", INSTALL_DIR, DATA_DI
 
 DEFAULT_LOCALE = "de"
 
-from .mmx import MMX
+from mmx_legacy_info.mmx import MMX

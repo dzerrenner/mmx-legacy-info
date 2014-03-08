@@ -5,8 +5,23 @@ from mmx_legacy_info import BASE_DIR, DEFAULT_LOCALE
 
 
 class MMXLocale(UserDict):
-    def __init__(self, locale=DEFAULT_LOCALE, **kwargs):
-        super().__init__(**kwargs)
+    """
+    reads locale data
+
+    >>> l = MMXLocale()
+    >>> l['DIALOG_OPTION_AIOLOS_1']
+    'Anwerbung: Kundschafter'
+
+    >>> # unknown locale
+    >>> l = MMXLocale(locale='yy')
+    Traceback (most recent call last):
+    ...
+    FileNotFoundError: Data file for locale yy not found. Please check if this file exists: 'D:\Games\Steam\SteamApps\common\Might & Magic X - Legacy\Might and Magic X Legacy_Data\StreamingAssets\Localisation\yy\loca.xml'
+
+    """
+
+    def __init__(self, locale=DEFAULT_LOCALE):
+        super().__init__()
         self.locale = locale
         self.filename = os.path.join(BASE_DIR, "Localisation", self.locale, "loca.xml")
         self._parse_file()

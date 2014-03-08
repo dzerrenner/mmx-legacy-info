@@ -7,7 +7,7 @@ class MMX(object):
     Defines the main class to load files and process them.
 
     Using locales:
-        Simple example (with defaule locale 'de'):
+        Simple example (with default locale 'de'):
 
         >>> m = MMX()
         >>> m.parse_locale()
@@ -25,6 +25,12 @@ class MMX(object):
         >>> m.locale['DIALOG_OPTION_AIOLOS_1']
         '雇用：スカウト'
 
+        >>> # separate install dir
+        >>> import mmx_legacy_info, os.path
+        >>> m = MMX(r"d:\test_mmx\StramingAssets")
+        >>> m.parse_locale("kr")
+        >>> m.locale['DIALOG_OPTION_AIOLOS_1']
+        '고용: 정찰병'
     """
 
     def __init__(self, base_dir=BASE_DIR):
