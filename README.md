@@ -12,7 +12,7 @@ These are mainly XML- and CSV-files used by the Unity-Engine as streaming assets
 
 - python >= 3
 - a copy of the game, more info here: http://might-and-magic.ubi.com/mightandmagicx-legacy
-- xmldict >= 0.4.1, see: https://github.com/thoughtnirvana/xmldict
+- xmltodict, see: https://github.com/martinblech/xmltodict
 - mongodb (optional but recommended) to avoid repeated parsing and disk access. No implementation yet.
 
 ## Progress and planned features
