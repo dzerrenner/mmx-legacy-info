@@ -14,9 +14,10 @@ class NPC(NPCRecord):
 
     >>> import mmx_legacy_info, os.path, csv
     >>> npc_file = os.path.join(mmx_legacy_info.BASE_DIR, "StaticData", "NpcStaticData.csv")
-    >>> reader = csv.reader(open(npc_file, newline=''))
+    >>> # filter comment rows
+    >>> reader = csv.reader(filter(lambda row: row[0]!='#' and not row.startswith('StaticID'), open(npc_file, newline='')))
     >>> npc_list = [NPC(*line) for line in reader]  # note list expansion
-    >>> lord_haart = npc_list[3]
+    >>> lord_haart = npc_list[0]
     >>> lord_haart.name_key
     'NPC_NAME_LORD_HAART'
 
