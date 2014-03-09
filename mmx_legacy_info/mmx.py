@@ -65,6 +65,14 @@ class MMX(object):
     def load_npcs(self):
         """
         Loads all NPCs to memory.
+
+        filter hirelings:
+        >>> m = MMX()
+        >>> m.load_npcs()
+        >>> hirelings = [n for n in filter(lambda npc: npc.is_hireling, m.npc_list)]
+        >>> hirelings[0].name_key
+        'NPC_NAME_HAJI'
+
         """
 
         npc_file = os.path.join(mmx_legacy_info.BASE_DIR, "StaticData", "NpcStaticData.csv")
