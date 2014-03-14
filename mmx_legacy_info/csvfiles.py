@@ -1,4 +1,29 @@
 from collections import namedtuple
+import csv
+import os.path
+import mmx_legacy_info
+
+
+def read_file(filename, record_type):
+    """
+    Generator that reads a CSV-file and yields entry objects in the same order as they are listed in the file.
+    This function needs the target record type as second parameter.
+
+    >>> from mmx_legacy_info.csvfiles import Quest, read_file
+    >>> quests = []
+    >>> for qr in read_file("QuestObjectives.csv", Quest):
+    ...     quests.append(qr)  # explicit list generation for testing purposes
+    >>> quests[3].description
+    'QUEST_OBJECTIVE_DARKNESS_LIGHTHOUSE_1_1'
+
+    """
+    full_filename = os.path.join(mmx_legacy_info.BASE_DIR, "StaticData", filename)
+    reader = csv.reader(
+        filter(lambda row: row[0] != '#' and not row.startswith('StaticID'), open(full_filename, newline=''))
+    )
+    for line in reader:
+        yield record_type(*line)
+
 
 QuestRecord = namedtuple('QuestRecord', 'id, description, kill_monster_class, kill_monster_type, kill_monster_id,'
                                         'token_id, npc_id, is_return, is_main, days_to_pass, terrain_steps, location')
