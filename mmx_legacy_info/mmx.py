@@ -3,8 +3,8 @@ import os.path
 
 from mmx_legacy_info import BASE_DIR, DEFAULT_LOCALE
 import mmx_legacy_info
-from mmx_legacy_info.locale import MMXLocale
-from mmx_legacy_info.npc import NPC
+from mmx_legacy_info.xmlfiles import ScreenText
+from mmx_legacy_info.csvfiles import NPC
 
 
 class MMX(object):
@@ -54,13 +54,12 @@ class MMX(object):
         '雇用：スカウト'
 
         >>> # separate install dir
-        >>> import mmx_legacy_info, os.path
-        >>> m = MMX(r"d:\test_mmx\StramingAssets")
+        >>> m = MMX(r"d:\test_mmx\StreamingAssets")
         >>> m.parse_locale("kr")
         >>> m.locale['DIALOG_OPTION_AIOLOS_1']
         '고용: 정찰병'
         """
-        self.locale = MMXLocale(locale)
+        self.locale = ScreenText(locale=locale)
 
     def load_npcs(self):
         """
